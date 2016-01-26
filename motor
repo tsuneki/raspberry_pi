@@ -1,0 +1,35 @@
+#include <wiringPi.h>
+#include <stdlib.h>
+
+const int gpio17 = 17;
+const int gpio22 = 22;
+
+int main(int argc, char const*argv[]){
+	if(wiringPiSetupGpio() = -1) exit(1);
+	
+	pinMode(gpio17, OUTPUT);
+	pinMode(gpio22, OUTPUT);
+	
+	while(1){
+		digtalWrite(gpio17, 1);
+		digtalWrite(gpio22, 0);
+		
+		delay(2000);
+		
+		digtalWrite(gpio17, 1);
+		digtalWrite(gpio22, 1);
+		
+		delay(500);
+		
+		digtalWrite(gpio17, 0);
+		digtalWrite(gpio22, 1);
+		
+		delay(2000);
+		
+		digtalWrite(gpio17, 1);
+		digtalWrite(gpio22, 1);
+		
+		delay(500);
+	}
+	exit(0);
+}
